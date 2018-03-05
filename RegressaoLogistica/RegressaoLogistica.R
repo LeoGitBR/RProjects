@@ -6,9 +6,10 @@
 
 # https://www.kaggle.com/c/titanic/data
 
+setwd("~/OneDrive/Desenvolvimento/R/GitHub/RProjects/RegressaoLogistica")
 
 # Comecamos carregando o dataset de dados_treino
-dados_treino <- read.csv('titanic-train.csv')
+dados_treino <- read.csv('train.csv')
 head(dados_treino)
 
 # Analise exploratoria de dados
@@ -17,7 +18,7 @@ head(dados_treino)
 # Cerca de 20% dos dados sobre idade estao Missing (faltando)
 install.packages("Amelia")
 library(Amelia)
-missmap(dados_treino, main = "Titanic Training Data - Mapa de Dados Missing", 
+Amelia::missmap(dados_treino, main = "Titanic Training Data - Mapa de Dados Missing", 
         col = c("yellow", "black"), legend = FALSE)
 
 # Visualizando os dados
@@ -75,6 +76,7 @@ library(dplyr)
 dados_treino <- select(dados_treino, -PassengerId, -Name, -Ticket, -Cabin)
 head(dados_treino, 3)
 str(dados_treino)
+
 
 # Treinando o modelo
 log.model <- glm(formula = Survived ~ . , family = binomial(link = 'logit'), data = dados_treino)
