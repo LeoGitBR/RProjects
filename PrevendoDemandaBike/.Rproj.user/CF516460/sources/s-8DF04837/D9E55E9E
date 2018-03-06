@@ -2,18 +2,18 @@
     "collab_server" : "",
     "contents" : "",
     "created" : 1520221365277.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1249356658",
+    "hash" : "0",
     "id" : "D9E55E9E",
     "lastKnownWriteTime" : 1520249002,
-    "last_content_update" : 1520249002288,
+    "last_content_update" : 1520295759364,
     "path" : "~/OneDrive/Desenvolvimento/R/GitHub/PrevendoDemandaBike/02-Analise Exploratoria de Dados1.R",
     "project_path" : "02-Analise Exploratoria de Dados1.R",
     "properties" : {
-        "cursorPosition" : "28,69",
-        "scrollLine" : "25"
+        "cursorPosition" : "34,44",
+        "scrollLine" : "20"
     },
     "relative_order" : 4,
     "source_on_save" : false,

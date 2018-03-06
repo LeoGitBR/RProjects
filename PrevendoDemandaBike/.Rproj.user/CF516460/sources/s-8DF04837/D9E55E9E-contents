@@ -29,6 +29,8 @@ str(bikes)
 bikesPerHour <- stats::aggregate([cnt, workingday] ~ hr, bikes, mean)
 barplot(bikesPerHour$cnt, names = bikesPerHour$hr)
 
+
+
 # Verificando a correlacao entre as variaveis preditoras
 linearM <- lm(cnt ~ dteday, data = bikes) # summary(linearM)    
 
