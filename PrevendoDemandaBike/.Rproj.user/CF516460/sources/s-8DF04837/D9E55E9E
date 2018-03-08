@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "D9E55E9E",
-    "lastKnownWriteTime" : 1520249002,
-    "last_content_update" : 1520295759364,
+    "lastKnownWriteTime" : 1520474628,
+    "last_content_update" : 1520474951439,
     "path" : "~/OneDrive/Desenvolvimento/R/GitHub/PrevendoDemandaBike/02-Analise Exploratoria de Dados1.R",
     "project_path" : "02-Analise Exploratoria de Dados1.R",
     "properties" : {
-        "cursorPosition" : "34,44",
-        "scrollLine" : "20"
+        "cursorPosition" : "32,0",
+        "scrollLine" : "23"
     },
     "relative_order" : 4,
     "source_on_save" : false,

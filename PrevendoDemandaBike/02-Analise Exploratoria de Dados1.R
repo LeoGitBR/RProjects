@@ -29,11 +29,16 @@ str(bikes)
 bikesPerHour <- stats::aggregate([cnt, workingday] ~ hr, bikes, mean)
 barplot(bikesPerHour$cnt, names = bikesPerHour$hr)
 
+
+
 # Verificando a correlacao entre as variaveis preditoras
-linearM <- lm(cnt ~ dteday, data = bikes) # summary(linearM)    
+linearM         <- lm(cnt ~ dteday, data = bikes) # summary(linearM)    
+prediction      <- predict(linearM, newdata = bikes) # summary(prediction)    head(prediction)
+countAndPredict = data.frame(BikesCount = bikes$cnt, Prediction = prediction) # head(countAndPredict)
+                    
 
 
-bikes$count <- bikes$cnt - predict(lm(cnt ~ dteday, data = bikes), newdata = bikes)
+bikes$count <- bikes$cnt - prediction # head(bikes$cnt)
 
 cols <- c("mnth", "hr", "holiday", "workingday",
           "weathersit", "temp", "hum", "windspeed",
@@ -60,6 +65,44 @@ plot.cors <- function(x, labs){
 }
 
 Map(plot.cors, cors, metodos)
+
+
+## #####################################################################################
+## Visualizando o relacionamento entre as variaveis preditoras e demanda por bike
+## #####################################################################################
+require(ggplot2)
+
+labels <- c("Demanda de Bikes vs Temperatura",
+            "Demanda de Bikes vs Humidade",
+            "Demanda de Bikes vs Velocidade do Vento",
+            "Demanda de Bikes vs Hora")
+
+xAxis <- c("temp", "hum", "windspeed", "hr")
+
+plot.scatter <- function(X, label){ 
+    ggplot(bikes, aes_string(x = X, y = "cnt")) + 
+        geom_point(aes_string(colour = "cnt"), alpha = 0.1) + 
+        scale_colour_gradient(low = "green", high = "blue") + 
+        geom_smooth(method = "loess") + 
+        ggtitle(label) +
+        theme(text = element_text(size = 20)) }
+
+Map(plot.scatter, xAxis, labels)
+
+
+## Explorando a interacao entre tempo e dia em dias da semana e fins de semana
+labels <- list("Box plots - Demanda por Bikes as 09:00 para \n dias da semana e fins de semana",
+               "Box plots - Demanda por Bikes as 18:00  para \n dias da semana e fins de semana")
+
+Times <- list(9, 18)
+
+plot.box2 <- function(time, label){ 
+    ggplot(bikes[bikes$hr == time, ], 
+           aes(x = isWorking, y = cnt, group = isWorking)) + 
+        geom_boxplot( ) + ggtitle(label) +
+        theme(text = element_text(size = 18)) }
+
+Map(plot.box2, Times, labels)
 
 ## Gera saida no Azure ML
 if(Azure) maml.mapOutputPort('bikes')
