@@ -27,10 +27,12 @@ if(Azure) {
     bikesOriginal[, cols] <- scale(bikesOriginal[, cols])
 }
 
-
+### #################################################
 ### Verificando valores missing
+### #################################################
 any(is.na(bikesOriginal))
 summary(bikesOriginal)
+str(bikesOriginal)
 
 bikes <- na.omit(bikesOriginal)
 
@@ -41,13 +43,24 @@ summary(bikes)
 ### Criar um nova variavel para indicar dia da semana
 bikes$isWorking <- ifelse(bikes$workingday & !bikes$holiday, 1, 0)
 
-
+### ################################################################################
 ### Criar um fator ordenado para o dia da semana
-bikes$dayWeek <- base::as.factor(base::weekdays(bikes$dteday))
+### ################################################################################
+bikes$dayWeek <- base::as.factor(base::weekdays(bikes$dteday)) # table(bikes$dayWeek)
 bikes$dayWeek <- base::as.numeric(base::ordered(bikes$dayWeek),
                                   levels = c("Monday","Tuesday","Wednesday"
                                              ,"Thursday","Friday","Saturday","Sunday"))
 
+
+
+
+bikes$weatherName <- factor(bikes$weathersit,
+                           levels = c(1,2,3,4),
+                           labels = c("Clear", "Mist", "Light Snow", "Heavy Rain"))
+
+c<-table(bikes$weatherName, bikes$cnt)
+c
+barplot(c, legend = rownames(c))
 
 
 

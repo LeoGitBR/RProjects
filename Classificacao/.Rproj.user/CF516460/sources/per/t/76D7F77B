@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1520646613207.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1199539205",
+    "id" : "76D7F77B",
+    "lastKnownWriteTime" : 1520645681,
+    "last_content_update" : 1520645681,
+    "path" : "~/OneDrive/Desenvolvimento/R/GitHub/Classificacao/ClassTools.R",
+    "project_path" : "ClassTools.R",
+    "properties" : {
+        "cursorPosition" : "77,29",
+        "scrollLine" : "39",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

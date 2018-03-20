@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1520900411732.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1404581763",
+    "id" : "ABE44EC4",
+    "lastKnownWriteTime" : 1495766088,
+    "last_content_update" : 1495766088,
+    "path" : "~/OneDrive/Desenvolvimento/R/DSA/Cap7/03-Regressão Linear.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "75,16",
+        "scrollLine" : "68"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

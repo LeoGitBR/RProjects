@@ -1,0 +1,55 @@
+## ################################################################################
+## Analise de risco de credito com classificacao
+## ################################################################################
+
+library(ggplot2)
+
+# lendo o dataset
+credito <- read.csv("credito.csv", header = FALSE)
+
+# Nomeando as colunas
+cNames <-
+    c("CheckingAcctStat",
+                "Duration",
+                "CreditHistory",
+                "Purpose",
+                "CreditAmount",
+                "SavingsBonds",
+                "Employment",
+                "InstallmentRatePecnt",
+                "SexAndStatus",
+                "OtherDetorsGuarantors",
+                "PresentResidenceTime",
+                "Property",
+                "Age",
+                "OtherInstalments",
+                "Housing",
+                "ExistingCreditsAtBank",
+                "Job",
+                "NumberDependents",
+                "Telephone",
+                "ForeignWorker",
+                "CreditStatus")
+
+colnames(credito) <- cNames
+
+str(credito)
+
+#Renomeando fatores
+credito$CreditStatus = factor(credito$CreditStatus, levels = c(1,2) , labels = c("Bom Pagador", "Mau Pagador"))
+table(credito$CreditStatus)
+
+ggplot(credito, aes_string("Purpose")) + geom_bar() + facet_grid(. ~ CreditStatus)
+
+
+str(data)
+data(iris)
+data <- iris[, c(1, 2, 5)]
+data$Species <- factor(ifelse(data$Species == "setosa","rare","common")) 
+## checking the class distribution of this artificial data set
+table(data$Species)
+
+classTree <- SMOTE(Species ~ ., data, perc.over = 600,perc.under=100,
+                   learner='rpartXse',se=0.5)
+## check the resulting classification tree
+classTree

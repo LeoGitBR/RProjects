@@ -26,8 +26,11 @@ str(bikes)
 
 
 # Verificando qts bikes sao alugadas por hora
-bikesPerHour <- stats::aggregate([cnt, workingday] ~ hr, bikes, mean)
+bikesPerHour <- stats::aggregate(cnt ~ hr, bikes, mean) # head(bikesPerHour)
 barplot(bikesPerHour$cnt, names = bikesPerHour$hr)
+
+
+
 
 
 
